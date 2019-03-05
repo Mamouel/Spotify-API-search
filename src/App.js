@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Router, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home/Home"
+import ArtistAlbums from "./containers/ArtistAlbums/ArtistAlbums"
+
 
 import createBrowserHistory from 'history/createBrowserHistory';
 const history = createBrowserHistory();
@@ -13,7 +15,8 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path='/' component={Home} />
-            {/* <Route exact path='/login' component={Login} /> */}
+            <Route exact path='/artists/:id/:accessToken' component={ArtistAlbums} />
+
             <Route
             component={() => (
               <div style={{ textAlign: "center" }}>

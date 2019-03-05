@@ -18,9 +18,7 @@ class Home extends Component {
   componentDidMount() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
-    console.log(accessToken)
-    if (!accessToken)
-      return;
+    if (!accessToken) return;
     fetch('https://api.spotify.com/v1/me', {
       headers: {'Authorization': 'Bearer ' + accessToken}
     }).then(response => response.json())
@@ -32,6 +30,8 @@ class Home extends Component {
   }
 
   render() {
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed.access_token;
     return (
       <div className="App">
         {this.state.user.name === "" ?
@@ -47,8 +47,8 @@ class Home extends Component {
               'marginTop': '5px'
             }}>
               Welcome {this.state.user.name}
-              <ArtistSearch />
             </h1>
+            <ArtistSearch accessToken={accessToken}/>
           </div>
         }
       </div>
