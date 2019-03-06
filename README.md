@@ -13,6 +13,12 @@ This will install dependencies.
 
 You can now run
 
+### `node server/app.js`
+
+To launch the server
+
+Then
+
 ### `npm start`
 or
 ### `yarn start`
