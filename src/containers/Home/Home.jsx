@@ -44,7 +44,7 @@ class Home extends Component {
             <div style={{ marginBottom: 50 }}>To go further, you need to connect to your Spotify account</div>
             <button onClick={() => {
               window.location = window.location.href.includes('localhost') &&
-                'http://localhost:8888/login' 
+                'https://spotify-api-example.herokuapp.com/login' 
             }}>
               Sign in with Spotify
             </button>
