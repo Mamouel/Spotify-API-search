@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div style={{ height: 70, width: "100%", position: "fixed", backgroundColor: "#10ac84" }}></div>
+        <div className="main-title" style={{ height: 70, width: "100%", position: "fixed", backgroundColor: "#10ac84", color: "white", zIndex: 10 }}>Spotify Artists Search</div>
         <Router history={history}>
           <div className="App" style={{ paddingTop: 70 }}>
             <Switch>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import ArtistCard from "./components/ArtistCard";
 import SearchField from "./components/SearchField";
+import LoadingAnimation from "../../layout/LoadingAnimation";
 
 class ArtistSearch extends Component {
   constructor(props) {
@@ -14,6 +15,10 @@ class ArtistSearch extends Component {
       searchTerm : "",
       currentDisplay: []
     }
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   performSearch = (searchTerm) => {
@@ -43,11 +48,12 @@ class ArtistSearch extends Component {
   render(props) {
     let { accessToken } = this.props;
     return (
-      <div>
+      <div >
         <SearchField 
           handleChange={this.handleInputChange}
           value={this.state.searchTerm}
         />
+
         <div>
           {this.state.searchTerm === "" ? 
             <div></div>
@@ -56,11 +62,11 @@ class ArtistSearch extends Component {
             <div>
               {(this.state.currentDisplay.artists && this.state.isLoading) ?
                 
-                <div>{this.state.currentDisplay.artists.items.map((artist, index) => {
+                <div className="cards-container">{this.state.currentDisplay.artists.items.map((artist, index) => {
                   return (
                     <Link to={`/artists/${artist.id}/${accessToken}`} key={index}><ArtistCard  searchResults={artist}/></Link>
                   )
-                })}</div> : null
+                })}</div> : <LoadingAnimation />
     
               }
             </div>
