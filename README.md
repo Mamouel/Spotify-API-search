@@ -4,6 +4,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You can see this project on https://spotify-api-example.herokuapp.com/
+
 ## Launch project
 
 To see this this project, you can clone it directly.
