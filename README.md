@@ -39,6 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Next steps
 
+- Remove button "Load more" if there is nothing more to load
 - Add Redux for state management
 - Add Flow for type checking
 - Debounce search function
