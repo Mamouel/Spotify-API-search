@@ -10,6 +10,7 @@ let client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 let redirect_uri = process.env.REDIRECT_URI || "http://localhost:8888/callback";
 let frontend_uri = process.env.FRONTEND_URI || "http://localhost:3000";
 
+const root = path.join(__dirname, "..", "build/");
 
 const generateRandomString = function(length) {
   let text = "";
@@ -25,10 +26,11 @@ const stateKey = "spotify_auth_state";
 
 let app = express();
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(root));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
+
 
 
 
@@ -50,6 +52,10 @@ app.use(function (req, res, next) {
 
   // Pass to next layer of middleware
   next();
+});
+
+app.get("*", (req, res) => {
+  res.sendFile("index.html", { root });
 });
 
 app.get("/login", function(req, res) {
@@ -95,8 +101,7 @@ app.get("/callback", function(req, res) {
     request.get(options, function(error, response, body) {
       console.log(body);
     });
-    let uri = process.env.FRONTEND_URI || "http://localhost:3000"
-    res.redirect(uri + "?access_token=" + access_token)
+    res.redirect(frontend_uri + "?access_token=" + access_token)
   });
 });
 
