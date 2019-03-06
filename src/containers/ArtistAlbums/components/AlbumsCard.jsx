@@ -1,21 +1,16 @@
-import React from 'react';
-import defaultAlbumImage from "../../../style/images/defaultArtistImage.jpg";
+import React from "react";
 
+import defaultAlbumImage from "../../../style/images/defaultArtistImage.jpg";
 
 const AlbumCard = (props) => {
   const album = props.album;
   const artistArray = album.artists.map((artist) => {
     return artist.name
   });
-
   const albumUrl = album.external_urls.spotify;
-  console.log(albumUrl)
-
   const image = album.images.length === 0 ? defaultAlbumImage : album.images[0].url;
   const releaseDate = album.release_date;
   const totalTracks = album.total_tracks;
-  console.log(album)
-
   return (
 
     <a href={albumUrl} target="_blank" rel="noopener noreferrer">
@@ -33,7 +28,7 @@ const AlbumCard = (props) => {
         </div>
       </div>
     </a>
-  )
-}
+  );
+};
 
 export default AlbumCard;

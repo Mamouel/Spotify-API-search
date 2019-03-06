@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import queryString from 'query-string';
-
 import { Link } from "react-router-dom";
 
 import ArtistCard from "./components/ArtistCard";
@@ -14,12 +13,12 @@ class ArtistSearch extends Component {
       isLoading: false,
       searchTerm : "",
       currentDisplay: []
-    }
-  }
+    };
+  };
 
   componentDidMount() {
     window.scrollTo(0, 0);
-  }
+  };
 
   performSearch = (searchTerm) => {
     let parsed = queryString.parse(window.location.search);
@@ -33,8 +32,8 @@ class ArtistSearch extends Component {
     .then(data => this.setState({
       currentDisplay: data,
       isLoading: true,
-    }))
-  }
+    }));
+  };
 
   handleInputChange = (e) => {
     this.performSearch(e.target.value);
@@ -42,8 +41,8 @@ class ArtistSearch extends Component {
       ...this.state,
       searchTerm: e.target.value,
       isLoading: true
-    })
-  }
+    });
+  };
 
   render(props) {
     let { accessToken } = this.props;
@@ -73,8 +72,8 @@ class ArtistSearch extends Component {
           </div>}
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default ArtistSearch;

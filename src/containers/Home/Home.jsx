@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import queryString from "query-string";
 
 import ArtistSearch from "../Artistsearch/ArtistSearch";
-import queryString from "query-string";
 
 
 class Home extends Component {
@@ -38,8 +38,6 @@ class Home extends Component {
     if(userArrayName.lenght !== 0) userFirstName = userArrayName[0];
     return (
       <div className="App" style={{ textAlign: "center" }}>
-       
-
         {this.state.user.name === "" ?
           <div style={{ fontSize: 20  }}>
             <div style={{ marginTop: 50, marginBottom: 10  }}>Welcome to my technical assignment for TouchTunes</div>

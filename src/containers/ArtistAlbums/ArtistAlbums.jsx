@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AlbumCard from "./components/AlbumsCard";
 import LoadingAnimation from "../../layout/LoadingAnimation";
 
-export default class ArtistAlbums extends Component {
+class ArtistAlbums extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,3 +70,5 @@ export default class ArtistAlbums extends Component {
     );
   };
 };
+
+export default ArtistAlbums;

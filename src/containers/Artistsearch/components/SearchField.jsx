@@ -1,10 +1,6 @@
 import React from "react";
 
-
-
-
 const SearchField = (props) => {
-
   return(  
     <div className="search-container">
       <div className="textfield-container">
@@ -18,7 +14,7 @@ const SearchField = (props) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
   
 export default SearchField;

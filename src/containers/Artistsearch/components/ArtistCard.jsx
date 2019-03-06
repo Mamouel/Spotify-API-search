@@ -7,7 +7,7 @@ const ArtistCard = (props) => {
   const artist = props.searchResults;
   const image = artist.images.length === 0 ? defaultArtistImage : artist.images[0].url;
   const followers = artist.followers.total;
-  const rating = Math.floor(artist.popularity /20)
+  const rating = Math.floor(artist.popularity /20);
 
   return (
     <div className="card-container" style={{ margin: 10, position: "relative" }}>
@@ -22,7 +22,7 @@ const ArtistCard = (props) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ArtistCard;
