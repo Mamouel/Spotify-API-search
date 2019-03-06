@@ -77,6 +77,7 @@ app.get("/login", function(req, res) {
 });
 
 app.get("/callback", function(req, res) {
+  console.log("yoooooo")
   let code = req.query.code || null
   let authOptions = {
     url: "https://accounts.spotify.com/api/token",
