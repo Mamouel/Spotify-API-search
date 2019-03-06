@@ -43,7 +43,7 @@ class Home extends Component {
             <div style={{ marginTop: 50, marginBottom: 10  }}>Welcome to my technical assignment for TouchTunes</div>
             <div style={{ marginBottom: 50 }}>To go further, you need to connect to your Spotify account</div>
             <button onClick={() => {
-              window.location = window.location.href.includes('localhost') &&
+              window.location = window.location.href.includes('spotify-api-example') &&
                 'https://spotify-api-example.herokuapp.com/login' 
             }}>
               Sign in with Spotify
