@@ -4,6 +4,9 @@ import queryString from "query-string";
 import ArtistSearch from "../Artistsearch/ArtistSearch";
 
 
+let redirect_uri = process.env.REDIRECT_URI;
+let locationInclude = process.env.NODE_ENV === "development" ? "localhost" : "spotify-api-example";
+
 class Home extends Component {
   constructor() {
     super();
@@ -43,8 +46,8 @@ class Home extends Component {
             <div style={{ marginTop: 50, marginBottom: 10  }}>Welcome to my technical assignment for TouchTunes</div>
             <div style={{ marginBottom: 50 }}>To go further, you need to connect to your Spotify account</div>
             <button onClick={() => {
-              window.location = window.location.href.includes('spotify-api-example') &&
-                'https://spotify-api-example.herokuapp.com/login' 
+              window.location = window.location.href.includes(locationInclude) &&
+                redirect_uri 
             }}>
               Sign in with Spotify
             </button>

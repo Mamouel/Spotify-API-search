@@ -8,7 +8,7 @@ let cookieParser = require("cookie-parser");
 
 let client_id = process.env.SPOTIFY_CLIENT_ID;
 let client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-let redirect_uri = process.env.REDIRECT_URI || "http://localhost:8888/callback";
+let backend_uri = process.env.BACKEND_URI || "http://localhost:8888/callback";
 let frontend_uri = process.env.FRONTEND_URI || "http://localhost:3000";
 let port = process.env.PORT || 8888;
 
@@ -101,7 +101,7 @@ app.get("/callback", function(req, res) {
       json: true
     };
     request.get(options, function(error, response, body) {
-      console.log(body);
+      return body;
     });
     res.redirect(frontend_uri + "?access_token=" + access_token)
   });
