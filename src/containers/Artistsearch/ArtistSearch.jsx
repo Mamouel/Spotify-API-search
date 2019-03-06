@@ -10,8 +10,8 @@ class ArtistSearch extends Component {
   constructor(props) {
     super(props);
     let searchTerm = "";
-    if (localStorage.getItem('searchTerm')) {
-      searchTerm = localStorage.getItem('searchTerm');
+    if (sessionStorage.getItem('searchTerm')) {
+      searchTerm = sessionStorage.getItem('searchTerm');
     }
     this.state = {
       isLoading: false,
@@ -47,7 +47,7 @@ class ArtistSearch extends Component {
       currentDisplay: data,
       isLoading: true,
     }));
-    localStorage.setItem('searchTerm', searchTerm);
+    sessionStorage.setItem('searchTerm', searchTerm);
   };
 
   handleInputChange = (e) => {
