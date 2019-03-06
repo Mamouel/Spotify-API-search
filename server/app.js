@@ -10,6 +10,8 @@ let client_id = process.env.SPOTIFY_CLIENT_ID;
 let client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 let redirect_uri = process.env.REDIRECT_URI || "http://localhost:8888/callback";
 let frontend_uri = process.env.FRONTEND_URI || "http://localhost:3000";
+let port = process.env.PORT || 8888;
+
 
 const root = path.join(__dirname, "..", "build/");
 
@@ -104,6 +106,9 @@ app.get("/callback", function(req, res) {
   });
 });
 
-let port = process.env.PORT || 8888;
+app.get("*", (req, res) => {
+  res.sendFile("index.html", { root });
+});
+
 console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`);
 app.listen(port);
