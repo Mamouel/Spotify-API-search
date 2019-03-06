@@ -56,7 +56,7 @@ export default class ArtistAlbums extends Component {
             return <AlbumCard album={album} key={index}/>
           })}
         </div>
-      <button onClick={this.loadMoreAlbums}>Load more</button>
+      <button className="load-more-btn" onClick={this.loadMoreAlbums}>Load more</button>
 
       </div>
     )
