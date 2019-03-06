@@ -22,7 +22,7 @@ class App extends Component {
               component={() => (
                 <div style={{ textAlign: "center" }}>
                   <div style={{ margin: 40 }}>CAREFUL MATE - <span style={{ color: "purple" }}>if</span>(<span style={{ color: "dodgerblue" }}>page</span> === <span style={{ color: "orange" }}>"notfound"</span>) <span style={{ color: "purple" }}>return</span><span style={{ color: "dodgerblue" }}> isAlphieAngry</span> === <span style={{ color: "blue" }}>true</span>;</div>
-                  <img alt="alphie not happy" src={alphieNotHappy} />
+                  <img alt="alphie not happy" src={alphieNotHappy} style={{ width: "80%" }}/>
                 </div>
               )}
             />

@@ -34,7 +34,7 @@ class Home extends Component {
     let accessToken = parsed.access_token;
     let userArrayName = [];
     let userFirstName = "";
-    if(this.state.user.name !== "") userArrayName = this.state.user.name.split(" ");
+    if(this.state.user.name && this.state.user.name !== "") userArrayName = this.state.user.name.split(" ");
     if(userArrayName.lenght !== 0) userFirstName = userArrayName[0];
     return (
       <div className="App" style={{ textAlign: "center" }}>
