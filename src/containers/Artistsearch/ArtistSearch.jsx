@@ -9,15 +9,28 @@ import LoadingAnimation from "../../layout/LoadingAnimation";
 class ArtistSearch extends Component {
   constructor(props) {
     super(props);
+    let searchTerm = "";
+    if (localStorage.getItem('searchTerm')) {
+      searchTerm = localStorage.getItem('searchTerm');
+    }
     this.state = {
       isLoading: false,
-      searchTerm : "",
+      searchTerm : searchTerm,
       currentDisplay: []
     };
   };
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed.access_token;
+    fetch(`https://api.spotify.com/v1/search?q=${this.state.searchTerm}&type=artist`, {
+      headers: {'Authorization': 'Bearer ' + accessToken}
+    }).then(response => response.json())
+    .then(data => this.setState({
+      currentDisplay: data,
+      isLoading: true,
+    }));
   };
 
   performSearch = (searchTerm) => {
@@ -30,9 +43,11 @@ class ArtistSearch extends Component {
       headers: {'Authorization': 'Bearer ' + accessToken}
     }).then(response => response.json())
     .then(data => this.setState({
+      searchTerm: searchTerm,
       currentDisplay: data,
       isLoading: true,
     }));
+    localStorage.setItem('searchTerm', searchTerm);
   };
 
   handleInputChange = (e) => {
