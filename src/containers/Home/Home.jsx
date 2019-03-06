@@ -18,9 +18,7 @@ class Home extends Component {
   componentDidMount() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
-    console.log(accessToken)
-    if (!accessToken)
-      return;
+    if (!accessToken) return;
     fetch('https://api.spotify.com/v1/me', {
       headers: {'Authorization': 'Bearer ' + accessToken}
     }).then(response => response.json())
@@ -32,23 +30,28 @@ class Home extends Component {
   }
 
   render() {
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed.access_token;
     return (
-      <div className="App">
+      <div className="App" style={{ textAlign: "center" }}>
+        <div>Welcome to my technical assignment for TouchTunes</div>
+        <div>To go further, you need to connect to your Spotify account</div>
+
         {this.state.user.name === "" ?
           <button onClick={() => {
             window.location = window.location.href.includes('localhost') &&
               'http://localhost:8888/login' 
-            }
-          }
-          style={{padding: '20px', 'fontSize': '50px', 'marginTop': '20px'}}>Sign in with Spotify</button> :
+          }}>
+          Sign in with Spotify
+          </button> :
           <div>
             <h1 style={{ 
               'fontSize': '54px',
               'marginTop': '5px'
             }}>
               Welcome {this.state.user.name}
-              <ArtistSearch />
             </h1>
+            <ArtistSearch accessToken={accessToken}/>
           </div>
         }
       </div>

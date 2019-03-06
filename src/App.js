@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Router, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home/Home"
+import ArtistAlbums from "./containers/ArtistAlbums/ArtistAlbums"
+
 
 import createBrowserHistory from 'history/createBrowserHistory';
 const history = createBrowserHistory();
@@ -9,23 +11,28 @@ const history = createBrowserHistory();
 class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <div className="App">
-          <Switch>
-            <Route exact path='/' component={Home} />
-            {/* <Route exact path='/login' component={Login} /> */}
-            <Route
-            component={() => (
-              <div style={{ textAlign: "center" }}>
-                <div style={{ margin: 40 }}>NOT FOUND</div>
-                <img alt="" src="" />
-              </div>
-            )}
-          />
+      <div>
+        <div style={{ height: 70, width: "100%", position: "fixed", backgroundColor: "#10ac84" }}></div>
+        <Router history={history}>
+          <div className="App" style={{ paddingTop: 70 }}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/artists/:id/:accessToken' component={ArtistAlbums} />
 
-          </Switch>
-        </div>
-      </Router>
+              <Route
+              component={() => (
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ margin: 40 }}>NOT FOUND</div>
+                  <img alt="" src="" />
+                </div>
+              )}
+            />
+
+            </Switch>
+          </div>
+        </Router>
+
+      </div>
     );
   }
 }

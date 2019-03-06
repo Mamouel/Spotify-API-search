@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Card = (props) => {
-  console.log(props.searchResults)
+const ArtistCard = (props) => {
+
   const artist = props.searchResults;
+  console.log(props)
+  console.log(artist)
+
   return (
     <div>{artist.name}</div>
   )
 }
 
-export default Card;
+export default ArtistCard;

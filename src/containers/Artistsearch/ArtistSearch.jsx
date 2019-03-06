@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import queryString from 'query-string';
 
+import { Link } from "react-router-dom";
 
-import Card from "./components/Card";
-import SearchField from "./components/SearchField"
+import ArtistCard from "./components/ArtistCard";
+import SearchField from "./components/SearchField";
 
 class ArtistSearch extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isLoading: false,
       searchTerm : "",
@@ -28,7 +29,6 @@ class ArtistSearch extends Component {
       currentDisplay: data,
       isLoading: true,
     }))
-
   }
 
   handleInputChange = (e) => {
@@ -40,15 +40,14 @@ class ArtistSearch extends Component {
     })
   }
 
-  render() {
+  render(props) {
+    let { accessToken } = this.props;
     return (
       <div>
-
         <SearchField 
           handleChange={this.handleInputChange}
           value={this.state.searchTerm}
         />
-
         <div>
           {this.state.searchTerm === "" ? 
             <div></div>
@@ -59,7 +58,7 @@ class ArtistSearch extends Component {
                 
                 <div>{this.state.currentDisplay.artists.items.map((artist, index) => {
                   return (
-                    <Card key={index} searchResults={artist}/>
+                    <Link to={`/artists/${artist.id}/${accessToken}`} key={index}><ArtistCard  searchResults={artist}/></Link>
                   )
                 })}</div> : null
     

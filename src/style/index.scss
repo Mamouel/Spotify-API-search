@@ -1,0 +1,103 @@
+@import "./fonts.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./reset.scss";
+
+
+
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: $sans-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 100vh;
+  a {
+    color: $primary;
+    text-decoration: none;
+    cursor: pointer;
+    @include transition (all, 0.25s, ease);
+    &:link {
+      color: $primary;
+      text-decoration: none;
+    }
+    &:visited {
+      color: $primary;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+    &:active {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  input, textarea, select {
+    @include transition (all, 0.25s, ease);
+  }
+
+  input, textarea {
+    box-shadow: none;
+    background-color: $white;
+    border-bottom: 1px solid $grayMed;
+    border-top: none;
+    border-left: none;
+
+    border-right: none;
+
+    font-family: $sans-font;
+    font-size: 1.3em;
+    letter-spacing: 0.05em;
+    padding: 0;
+    color: $black;
+    outline: none;
+    height: 50px;
+
+    width: 80%;
+    &:focus, &:active {
+      letter-spacing: 0;
+      outline: none;
+      border-bottom: 2px solid $primary;
+
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+    &::placeholder {
+      color: $grayMed;
+    }
+  }
+
+  button {
+    border: 1px solid $primary;
+    background-color: $white;
+    color: $primary;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px auto;
+    cursor: pointer;
+    &:hover, &:focus {
+      color: $primaryDark;
+    }
+    &:active {
+      box-shadow: 0 2px 4px 2px rgba(54, 39, 28, 0);
+    }
+    &:focus {
+      outline: $black !important;
+    }
+    &.load-more-btn {
+      font-size: 20px;
+
+    }
+  }
+}
