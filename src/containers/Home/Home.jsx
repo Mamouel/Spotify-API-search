@@ -4,8 +4,6 @@ import queryString from "query-string";
 import ArtistSearch from "../Artistsearch/ArtistSearch";
 
 
-let redirect_uri = process.env.REDIRECT_URI;
-let locationInclude = process.env.NODE_ENV === "development" ? "localhost" : "spotify-api-example";
 
 class Home extends Component {
   constructor() {
@@ -37,6 +35,9 @@ class Home extends Component {
     let accessToken = parsed.access_token;
     let userArrayName = [];
     let userFirstName = "";
+    let redirect_uri = process.env.NODE_ENV === "development" ? "http://localhost:8888/login" : "https://spotify-api-example.herokuapp.com/login";
+let locationInclude = process.env.NODE_ENV === "development" ? "localhost" : "spotify-api-example";
+
     if(this.state.user.name && this.state.user.name !== "") userArrayName = this.state.user.name.split(" ");
     if(userArrayName.lenght !== 0) userFirstName = userArrayName[0];
     return (

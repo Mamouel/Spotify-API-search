@@ -8,7 +8,7 @@ let cookieParser = require("cookie-parser");
 
 let client_id = process.env.SPOTIFY_CLIENT_ID;
 let client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-let backend_uri = process.env.BACKEND_URI || "http://localhost:8888/callback";
+let redirect_uri = process.env.REDIRECT_URI || "http://localhost:8888/callback";
 let frontend_uri = process.env.FRONTEND_URI || "http://localhost:3000";
 let port = process.env.PORT || 8888;
 
@@ -77,7 +77,6 @@ app.get("/login", function(req, res) {
 });
 
 app.get("/callback", function(req, res) {
-  console.log("yoooooo")
   let code = req.query.code || null
   let authOptions = {
     url: "https://accounts.spotify.com/api/token",
@@ -101,7 +100,7 @@ app.get("/callback", function(req, res) {
       json: true
     };
     request.get(options, function(error, response, body) {
-      return body;
+      console.log(body);
     });
     res.redirect(frontend_uri + "?access_token=" + access_token)
   });
