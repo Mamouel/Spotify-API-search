@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import AlbumCard from "./components/AlbumsCard";
+import { Link } from "react-router-dom";
+
 import LoadingAnimation from "../../layout/LoadingAnimation";
 
 class ArtistAlbums extends Component {
@@ -39,6 +41,8 @@ class ArtistAlbums extends Component {
   render(props) {
     let albums = this.state.albums;
     let albumsLoaded;
+    let accessToken = this.props.match.params.accessToken;
+
     if(this.state.albumsLoaded) {
       albumsLoaded = this.state.albumsLoaded.items;
     } else {
@@ -48,7 +52,8 @@ class ArtistAlbums extends Component {
       <div style={{margin: "auto", width: "100%"}}>
         { albums.length === 0 ?
           <LoadingAnimation /> :
-          <div>
+          <div style={{textAlign: "center"}}>
+            <Link to={"/?access_token=" + accessToken}><button>Back</button></Link>
             <div className="cards-container">
               {albums && albums.map((album, index) => {
                 return <AlbumCard album={album} key={index}/>

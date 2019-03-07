@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import queryString from 'query-string';
+import queryString from "query-string";
 import { Link } from "react-router-dom";
 
 import ArtistCard from "./components/ArtistCard";

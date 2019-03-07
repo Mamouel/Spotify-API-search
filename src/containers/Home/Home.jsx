@@ -36,7 +36,7 @@ class Home extends Component {
     let userArrayName = [];
     let userFirstName = "";
     let redirect_uri = process.env.NODE_ENV === "development" ? "http://localhost:8888/login" : "https://spotify-api-example.herokuapp.com/login";
-let locationInclude = process.env.NODE_ENV === "development" ? "localhost" : "spotify-api-example";
+    let locationInclude = process.env.NODE_ENV === "development" ? "localhost" : "spotify-api-example";
 
     if(this.state.user.name && this.state.user.name !== "") userArrayName = this.state.user.name.split(" ");
     if(userArrayName.lenght !== 0) userFirstName = userArrayName[0];
