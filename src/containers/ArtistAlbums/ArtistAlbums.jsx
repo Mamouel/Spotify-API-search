@@ -39,6 +39,7 @@ class ArtistAlbums extends Component {
   };
 
   render(props) {
+    console.log(this.state)
     let albums = this.state.albums;
     let albumsLoaded;
     let accessToken = this.props.match.params.accessToken;
@@ -65,9 +66,13 @@ class ArtistAlbums extends Component {
                 return <AlbumCard album={album} key={index}/>
               })}
             </div>
-            <div style={{ textAlign: "center" }}>
-              <button className="load-more-btn" onClick={this.loadMoreAlbums}>Load more</button>
-            </div>
+            {(albums.length === 0 || albums.length < this.state.offset) ?
+              <div></div> :
+
+              <div style={{ textAlign: "center" }}>
+                <button className="load-more-btn" onClick={this.loadMoreAlbums}>Load more</button>
+              </div>
+            }
           </div>
         }
 
