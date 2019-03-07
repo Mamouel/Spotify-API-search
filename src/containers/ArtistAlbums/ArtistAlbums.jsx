@@ -39,7 +39,6 @@ class ArtistAlbums extends Component {
   };
 
   render(props) {
-    console.log(this.state)
     let albums = this.state.albums;
     let albumsLoaded;
     let accessToken = this.props.match.params.accessToken;
