@@ -4,7 +4,6 @@ import { Router, Route, Switch } from "react-router-dom";
 import Home from "./containers/Home/Home"
 import createBrowserHistory from "history/createBrowserHistory";
 import ArtistAlbums from "./containers/ArtistAlbums/ArtistAlbums";
-import alphieNotHappy from "./style/images/careful-mate.jpg";
 
 const history = createBrowserHistory();
 
@@ -21,8 +20,7 @@ class App extends Component {
               <Route
               component={() => (
                 <div style={{ textAlign: "center" }}>
-                  <div style={{ margin: 40 }}>CAREFUL MATE - <span style={{ color: "purple" }}>if</span>(<span style={{ color: "dodgerblue" }}>page</span> === <span style={{ color: "orange" }}>"notfound"</span>) <span style={{ color: "purple" }}>return</span><span style={{ color: "dodgerblue" }}> isAlphieAngry</span> = <span style={{ color: "blue" }}>true</span>;</div>
-                  <img alt="alphie not happy" src={alphieNotHappy} style={{ width: "80%" }}/>
+                  <div style={{ margin: 40 }}>404 - Not Found</div>
                 </div>
               )}
             />
